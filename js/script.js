@@ -6,11 +6,11 @@ $(document).ready(function() {
     // get times from moment
     const now = moment().format('MMMM Do YYYY');
   
-    // commented out for test in non-standard hours
+    
     let nowHour24 = moment().format('H');
     let nowHour12 = moment().format('h');
   
-    // set times for tesitng after hours
+    // set times for testing after hours
     if (test) {
       nowHour24 = 13;
       nowHour12 = 1;
@@ -20,7 +20,6 @@ $(document).ready(function() {
     $dateHeading.text(now);
     
     // using font awesome icon https://fontawesome.com/license
-    // change description here - none
     const saveIcon = "./images/save-regular.svg"; 
   
     // Get stored todos from localStorage
@@ -49,10 +48,10 @@ $(document).ready(function() {
     if (test) { console.log("current time",nowHour12); }
   
   
-    // build calendar by row for fix set of hours
-    for (let hour = 9; hour <= 17; hour++) {
+    // build calendar for 8-10
+    for (let hour = 8; hour <= 22; hour++) {
       // index for array use offset from hour
-      let index = hour - 9;
+      let index = hour - 8;
       
       // build row components
       let $rowDiv = $('<div>');
@@ -149,7 +148,7 @@ $(document).ready(function() {
     };
   
     // saves to local storage
-    // conclick function to listen for user clicks on plan area
+    // onclick function to listen for user clicks on plan area
     $(document).on('click','i', function(event) {
       event.preventDefault();  
   
@@ -186,5 +185,3 @@ $(document).ready(function() {
       $(`#saveid-${i}`).addClass('shadowPulse');
     });
   });
-
-  
